@@ -230,6 +230,9 @@ void ofxAbletonLive::update()
         else if (m.getAddress() == "/live/name/track") {
             processTrack(m);
         }
+        else if (m.getAddress() == "/live/track/meter") {
+            processTrackVolume(m);
+        }
     }
 }
 
@@ -270,6 +273,18 @@ void ofxAbletonLive::processClip(ofxOscMessage &m)
         tracks[track]->addClip(clipName, clip);
     }
 }
+
+
+//GET VOLUME FROM VU METER
+void ofxAbletonLive::processTrackVolume(ofxOscMessage &m)
+{
+    int track = m.getArgAsInt32(0);
+    float trackVolumeFromVuMeterFromOsc =m.getArgAsFloat(2);
+    if (tracks.count(track) != 0  ){
+       tracks[track]->addReturnVolumeFromVuMeter(trackVolumeFromVuMeterFromOsc);
+    }
+}
+
 
 void ofxAbletonLive::processDeviceList(ofxOscMessage &m, int trackType)
 {

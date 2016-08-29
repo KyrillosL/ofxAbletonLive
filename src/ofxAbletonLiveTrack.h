@@ -15,6 +15,10 @@ public:
         int track;
         int index;
         ofxOscSender *sender;
+        
+       
+        ofxOscReceiver *receiver;
+        
         string addrSend;
         ofParameter<float> send;
 
@@ -63,12 +67,19 @@ public:
     void printClips() {ofLog() << getClipsInfo();}
     void printDevices() {ofLog() << getDevicesInfo();}
     
+    float getTrackVolumeFromVuMeter();
+    float trackVolumeFromVuMeter;
+    
 protected:
 
     void setupTrack();
     void clear();
     void addDevice(string name, int device);
     void addClip(string name, int clip);
+    
+    void addReturnVolumeFromVuMeter(float _trackVolumeFromVuMeter);
+    
+    
     void addSend(int send, bool isReturn);
     
     void eventSetArmed(bool &b) {setArmed(arm);}
@@ -87,12 +98,14 @@ protected:
     map<string, ofxAbletonLiveDevice*> devicesLU;
     
     ofxOscSender * sender;
+    ofxOscReceiver *receiver;
 
     ofParameter<bool> arm;
     ofParameter<bool> mute;
     ofParameter<bool> solo;
     ofParameter<float> volume;
     ofParameter<float> pan;
+    
     
     bool isReturnTrack;
     string addrStop, addrClip, addrArm, addrMute, addrSolo, addrVolume, addrPan, addrSend;

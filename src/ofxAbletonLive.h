@@ -54,6 +54,8 @@ public:
     ofParameter<float> & getVolume() {return volume;}
     ofParameter<float> & getPan() {return pan;}
     ofParameter<float> & getCrossFader() {return crossfade;}
+    
+    
 
     int getNumTracks() {return numTracks;}
     int getNumScenes() {return numScenes;}
@@ -103,6 +105,10 @@ protected:
     void processNumScenes(ofxOscMessage &m);
     void processNumTracks(ofxOscMessage &m);
     void processTrack(ofxOscMessage &m);
+    
+    void processTrackVolume(ofxOscMessage &m);
+
+    
 
     void eventTempo(float &v) {setTempo(tempo);}
     void eventTime(float &v) {setTime(time);}
@@ -123,6 +129,7 @@ protected:
     ofParameter<float> time;
     ofParameter<bool> overdub;
     ofParameter<float> volume;
+
     ofParameter<float> pan;
     ofParameter<float> crossfade;
     

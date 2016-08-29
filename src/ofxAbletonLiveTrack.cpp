@@ -77,6 +77,19 @@ void ofxAbletonLiveTrack::addClip(string name, int clip)
     }
 }
 
+
+void ofxAbletonLiveTrack::addReturnVolumeFromVuMeter(float _trackVolumeFromVuMeter)
+{
+    
+    trackVolumeFromVuMeter= _trackVolumeFromVuMeter;
+
+}
+float ofxAbletonLiveTrack::getTrackVolumeFromVuMeter(){
+    
+    return trackVolumeFromVuMeter;
+}
+
+
 void ofxAbletonLiveTrack::addSend(int send, bool isReturn)
 {
     if (sends.count(send) == 0) {
@@ -274,3 +287,5 @@ ofxAbletonLiveTrack::~ofxAbletonLiveTrack()
     pan.removeListener(this, &ofxAbletonLiveTrack::eventSetPan);
     //clear();
 }
+
+
