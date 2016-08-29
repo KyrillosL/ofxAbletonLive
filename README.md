@@ -1,3 +1,7 @@
+## 29/08/2016 - Added a function to get volume from Vu Meters
+* You need to add the LiveOsc Control Device (LiveOsc Control.adg) from LiveOsc folder and enable track meter. 
+
+
 ofxAbletonLive is an addon for openFrameworks which controls [Ableton Live](https://www.ableton.com) from an OF app, allowing remote control without MaxForLive. Communication is handled over OSC using the [LiveOSC plugin](https://livecontrol.q3f.org/ableton-liveapi/liveosc/) and thus can be done across a network. Communication is 2-way and thus parameters remain in sync whether modified from the app or from Ableton.
 
 Most of Ableton's main features are implemented, but not all. A list of the OSC commands available can be [found here](https://github.com/hanshuebner/LiveOSC/blob/master/OSCAPI.txt). Most have been wrapped.
